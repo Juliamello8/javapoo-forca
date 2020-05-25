@@ -62,36 +62,31 @@ public class Registrar {
 	
 	public void RegristrarUsuario() {
 		Scanner leitor = new Scanner(System.in);
-		String login;
+		
 		System.out.println ("Digite um login: ");
 		login = leitor.nextLine(); 
 		Login usuario = new Login();
-		usuario.setLogin(login);
+		usuario.setLogin(this.login);
 		
-		String senha;
 		System.out.println ("Senha: ");
 		senha = leitor.nextLine(); 
-		usuario.setSenha(senha);
+		usuario.setSenha(this.senha);
 		
-		int idade;
 		System.out.println ("Idade: ");
 		idade = leitor.nextInt() ; 
-		usuario.setIdade(idade);
+		usuario.setIdade(this.idade);
 		
-		int telefone;
 		System.out.println ("Telefone: ");
 		telefone = leitor.nextInt(); 
-		usuario.setTelefone(telefone);
+		usuario.setTelefone(this.telefone);
 		
-		String cidade;
 		System.out.println ("Cidade: ");
 		cidade = leitor.nextLine(); 
-		usuario.setCidade(cidade);
+		usuario.setCidade(this.cidade);
 		
-		String estado;
 		System.out.println ("Estado: ");
 		estado = leitor.nextLine(); 
-		usuario.setEstado(estado);
+		usuario.setEstado(this.estado);
 		
 		
 	}

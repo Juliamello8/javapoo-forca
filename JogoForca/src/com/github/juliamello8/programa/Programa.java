@@ -9,9 +9,13 @@ public class Programa {
 		
 		Registrar eu = new Registrar();
 		eu.RegristrarUsuario() ;
-		Menu m = new Menu();
-		m.setCodMenu(1);
 		
+		Menu exibirPerfil = new Menu();
+		exibirPerfil.setCodMenu(1);
+		Menu temas = new Menu();
+		temas.setCodMenu(2);
+		Menu regras = new Menu();
+		regras.setCodMenu(3);
 	}
 	
 }
