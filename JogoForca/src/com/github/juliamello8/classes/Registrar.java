@@ -1,5 +1,6 @@
 package com.github.juliamello8.classes;
 
+import java.util.Scanner;
 
 public class Registrar {
 	private String login;
@@ -58,5 +59,42 @@ public class Registrar {
 	public void setCartao(int cartao) {
 		this.cartao = cartao;
 	}
+	
+	public void RegristrarUsuario() {
+		Scanner leitor = new Scanner(System.in);
+		String login;
+		System.out.println ("Digite um login: ");
+		login = leitor.nextLine(); 
+		Login usuario = new Login();
+		usuario.setLogin(login);
+		
+		String senha;
+		System.out.println ("Senha: ");
+		senha = leitor.nextLine(); 
+		usuario.setSenha(senha);
+		
+		int idade;
+		System.out.println ("Idade: ");
+		idade = leitor.nextInt() ; 
+		usuario.setIdade(idade);
+		
+		int telefone;
+		System.out.println ("Telefone: ");
+		telefone = leitor.nextInt(); 
+		usuario.setTelefone(telefone);
+		
+		String cidade;
+		System.out.println ("Cidade: ");
+		cidade = leitor.nextLine(); 
+		usuario.setCidade(cidade);
+		
+		String estado;
+		System.out.println ("Estado: ");
+		estado = leitor.nextLine(); 
+		usuario.setEstado(estado);
+		
+		
+	}
+
 }
 
