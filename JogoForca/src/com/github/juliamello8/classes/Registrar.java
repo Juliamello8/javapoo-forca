@@ -29,7 +29,7 @@ public class Registrar {
 		return idade;
 	}
 	public void setIdade(int idade) {
-		this.idade = idade;
+		this.idade = idade; 
 	}
 	
 	public int getTelefone() {
