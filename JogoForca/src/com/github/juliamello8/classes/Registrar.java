@@ -2,20 +2,31 @@ package com.github.juliamello8.classes;
 
 import java.util.Scanner;
 
-public class Registrar {
-	private String login;
+import com.github.juliamello8.programa.Programa;
+
+public class Registrar extends Programa {
+	private static String nome;
+	private static String login;
 	private String senha;
-	private int idade;
+	private static int idade;
 	private int telefone;
-	private String cidade;
-	private String estado;
-	private int cartao;
+	private static String city;
+	private static String estado;
+	private static int cartao;
+
 	
-	public String getLogin() {
+	public static String getNome() {
+		return nome;
+	}
+	public static void setNome(String nome) {
+		Registrar.nome = nome;
+	}
+	
+	public static String getLogin() {
 		return login;
 	}
 	public void setLogin(String login) {
-		this.login = login;
+		Registrar.login = login;
 	}
 	
 	public String getSenha() {
@@ -25,11 +36,11 @@ public class Registrar {
 		this.senha = senha;
 	}
 	
-	public int getIdade() {
+	public static int getIdade() {
 		return idade;
 	}
 	public void setIdade(int idade) {
-		this.idade = idade; 
+		Registrar.idade = idade; 
 	}
 	
 	public int getTelefone() {
@@ -39,57 +50,62 @@ public class Registrar {
 		this.telefone = telefone;
 	}
 	
-	public String getCidade() {
-		return cidade;
+	public static String getCity() {
+		return city;
 	}
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
+	public static void setCity(String city) {
+		Registrar.city = city;
 	}
 	
-	public String getEstado() {
+	public static String getEstado() {
 		return estado;
 	}
 	public void setEstado(String estado) {
-		this.estado = estado;
+		Registrar.estado = estado;
 	}
 	
 	public int getCartao() {
 		return cartao;
 	}
 	public void setCartao(int cartao) {
-		this.cartao = cartao;
+		Registrar.cartao = cartao;
 	}
 	
 	public void RegristrarUsuario() {
-		Scanner leitor = new Scanner(System.in);
-		
-		System.out.println ("Digite um login: ");
-		login = leitor.nextLine(); 
-		Login usuario = new Login();
-		usuario.setLogin(this.login);
-		
-		System.out.println ("Senha: ");
-		senha = leitor.nextLine(); 
-		usuario.setSenha(this.senha);
-		
-		System.out.println ("Idade: ");
-		idade = leitor.nextInt() ; 
-		usuario.setIdade(this.idade);
-		
-		System.out.println ("Telefone: ");
-		telefone = leitor.nextInt(); 
-		usuario.setTelefone(this.telefone);
-		
-		System.out.println ("Cidade: ");
-		cidade = leitor.nextLine(); 
-		usuario.setCidade(this.cidade);
-		
-		System.out.println ("Estado: ");
-		estado = leitor.nextLine(); 
-		usuario.setEstado(this.estado);
-		
-		
+		try (Scanner leitor = new Scanner(System.in)) {
+			System.out.println ("Digite um login: ");
+			login = leitor.nextLine(); 
+			Login usuario = new Login();
+			usuario.setLogin(Registrar.login);
+			
+			System.out.println ("Senha: ");
+			senha = leitor.nextLine(); 
+			usuario.setSenha(this.senha);
+			
+			System.out.println ("Digite seu nome: ");
+			nome = leitor.nextLine(); 
+			Registrar.setNome(Registrar.nome);
+			
+			System.out.println ("Idade: ");
+			idade = leitor.nextInt() ; 
+			usuario.setIdade(Registrar.idade);
+			
+			System.out.println ("Telefone: ");
+			telefone = leitor.nextInt(); 
+			usuario.setTelefone(this.telefone);
+			
+			System.out.println ("Cidade: ");
+			city = leitor.nextLine();
+			Registrar.setCity(Registrar.city);
+			
+			System.out.println ("Estado: ");
+			estado = leitor.nextLine(); 
+			usuario.setEstado(Registrar.estado);
+			
+			System.out.println ("Informe o número do seu cartão de crédito: ");
+			cartao = leitor.nextInt();
+			usuario.setCartao(Registrar.cartao);
+		}
 	}
-
 }
 
