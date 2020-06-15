@@ -71,7 +71,7 @@ public class Registrar extends Programa {
 		Registrar.cartao = cartao;
 	}
 	
-	public void RegristrarUsuario() {
+	public void regristrarUsuario() {
 		try (Scanner leitor = new Scanner(System.in)) {
 			System.out.println ("Digite um login: ");
 			login = leitor.nextLine(); 

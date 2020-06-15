@@ -52,7 +52,7 @@ public class Temas extends Programa {
 			default:
 				System.out.println("Opção Inválida!");
 				return;
-				}
+				} 
 			} while (optema != 0); 
 	}	
 }
