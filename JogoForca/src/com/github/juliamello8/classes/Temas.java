@@ -7,9 +7,12 @@ import com.github.juliamello8.programa.Programa;
 public class Temas extends Programa {
 
 	public void mostrarTemas() {
-			
+		
 		int optema;
 		
+		Scanner seltema = new Scanner(System.in);
+			
+				
 			System.out.println("\n\n### Escolha um tema: ###");
 			System.out.println("\n=========================");
 			System.out.println("|1 - Esportes		|");
@@ -19,27 +22,36 @@ public class Temas extends Programa {
 			System.out.println("|5 - Músicas		|");
 			System.out.println("=========================\n");
 			
-			Scanner seltema = new Scanner(System.in);
+			
 			
 			do {
-				mostrarTemas();
 				System.out.println("Opção: ");
 	            optema = seltema.nextInt();
 	            
 			switch (optema) {
-			case 1:
-				break;
+			case 1: 
+				Esportes esp = new Esportes();
+				esp.newEsportes();
+				return;
 			case 2:
-				break;
+				FilmesSeries filmse = new FilmesSeries();
+				filmse.newFilmes();
+				return;
 			case 3:
-				break;
+				PartesCorpo pdc = new PartesCorpo();
+				pdc.newPartCorp();
+				return;
 			case 4:
-				break;
+				Lugares lug = new Lugares();
+				lug.newLugares();
+				return;
 			case 5:
-				break;
+				Musicas mus = new Musicas();
+				mus.newMusicas();
+				return;
 			default:
 				System.out.println("Opção Inválida!");
-				break;
+				return;
 				}
 			} while (optema != 0); 
 	}	

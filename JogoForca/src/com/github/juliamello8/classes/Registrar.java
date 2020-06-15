@@ -60,7 +60,7 @@ public class Registrar extends Programa {
 	public static String getEstado() {
 		return estado;
 	}
-	public void setEstado(String estado) {
+	public static void setEstado(String estado) {
 		Registrar.estado = estado;
 	}
 	
@@ -100,7 +100,7 @@ public class Registrar extends Programa {
 			
 			System.out.println ("Estado: ");
 			estado = leitor.nextLine(); 
-			usuario.setEstado(Registrar.estado);
+			Registrar.setEstado(Registrar.estado);
 			
 			System.out.println ("Informe o número do seu cartão de crédito: ");
 			cartao = leitor.nextInt();
