@@ -16,6 +16,7 @@ public class Programa {
 			System.out.println("|   2 - Exibir Perfil	|");
 			System.out.println("|   3 - Temas		|");
 			System.out.println("|   4 - Regras		|");
+			System.out.println("|   5 - Sair		|");
 			System.out.println("=========================\n");
 		}
 	
@@ -47,12 +48,14 @@ public class Programa {
 				Regras r = new Regras();
 				r.mostrarRegras();
 				break;
+			case 5:
+				System.out.println("Só pode sair se a pontuação for maior que 30!");
+				break;
 			default:
 				System.out.println("Opção Inválida!");
-				break;
-			}
+				}
 		} while (opcao != 0);
-		
+				
 	}
 	
 }
