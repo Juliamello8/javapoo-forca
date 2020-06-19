@@ -20,19 +20,18 @@ public class SQLDatabaseConnection {
         try (Connection connection = DriverManager.getConnection(connectionUrl);
                 Statement statement = connection.createStatement();) {
 
-            // Create and execute a SELECT SQL statement.
             String selectSql = "select * from Pessoa";
             resultSet = statement.executeQuery(selectSql);
-
-            // Print results from select statement
-            while (resultSet.next()) {
-                System.out.println(resultSet.getString(1) + " " + resultSet.getString(2));
+            if (selectSql != null) {
+            	Login l = new Login();
+            	l.lerLogin();
+            } else {
+            	System.out.println("\n Usuário inexistente!");            	
             }
         }
         catch (SQLException e) {
             e.printStackTrace();
-            }	
-		 return null;
+        } return null;
 	}
 	public static String registrar(Registrar usuario){
 		
@@ -41,7 +40,6 @@ public class SQLDatabaseConnection {
         try (Connection connection = DriverManager.getConnection(connectionUrl);
                 Statement statement = connection.createStatement();) {
 
-            // Create and execute a SELECT SQL statement.
             StringBuilder insert = new StringBuilder();
             insert.append("insert into Pessoa (");
             insert.append("nome,");
@@ -65,9 +63,9 @@ public class SQLDatabaseConnection {
             System.out.println(insert.toString());
             statement.executeUpdate(insert.toString());
   
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
-            }	
-		 return null;
+        } return null;
 	}
+
 }

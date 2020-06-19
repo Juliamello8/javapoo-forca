@@ -17,9 +17,9 @@ public class Programa {
 			System.out.println("|   2 - Fazer Login	|");
 			System.out.println("=========================\n");
 		}
-		//COLOCAR CONDIÇÃO PARA VERIFICAR O LOGIN ISSO ENTRA COM DATABASE//
 		
-		public static void menu(){
+		
+		public static void menu() {
 			System.out.println("### MENU: ###");
 			System.out.println("\n=========================");
 			System.out.println("|   1 - Exibir Perfil	|");
@@ -36,56 +36,62 @@ public class Programa {
 		
 		Registrar eu = new Registrar();
 		
-		Scanner entrada = new Scanner(System.in);
-		
-		telainicial();
-		System.out.println("Opção: ");
-        inicio = entrada.nextInt();
-        boolean reg = false;
-        switch (inicio) {
-        case 1:
-			eu.lerUsuario();
-			eu.inserirUsuario();
-			reg = true;
-		break;
-        case 2:
-        	Login eu2 = new Login();
-			eu2.realizarLogin();
-		break;
-        default:
-			System.out.println("Opção Inválida!");
-		}
-		if (reg) {
+		try (Scanner entrada = new Scanner(System.in)) {
 			telainicial();
-		} else {
-        
-		do {
-			menu();
 			System.out.println("Opção: ");
-            opcao = entrada.nextInt();
-		
-			switch (opcao) {
-			case 1:
-				ExibirPerfil ep = new ExibirPerfil();
-				ep.verPerfil(eu);
+			inicio = entrada.nextInt();
+			boolean reg = false;
+			switch (inicio) {
+			    case 1:
+					eu.lerUsuario();
+					eu.inserirUsuario();
+					reg = true;
 				break;
-			case 2:
-				Temas t = new Temas();
-				t.mostrarTemas();
+			    case 2:
+			    	Login eu2 = new Login();
+					eu2.lerLogin();
+					eu2.Logar();
 				break;
-			case 3:
-				Regras r = new Regras();
-				r.mostrarRegras();
-				break;
-			case 4:
-				//COLOCAR CONDIÇÃO PARA SAIR//
-				System.out.println(Temas.score);
-				System.out.println("Só pode sair se a pontuação for maior que 30!");
-				break;
-			default:
-				System.out.println("Opção Inválida!");
+			    default:
+					System.out.println("Opção Inválida!");
 			}
-		} while (opcao != 0);		
+			if (reg) {
+				telainicial();
+			} else {
+			
+				do {
+					menu();
+					System.out.println("Opção: ");
+			        opcao = entrada.nextInt();
+				
+					switch (opcao) {
+					case 1:
+						ExibirPerfil ep = new ExibirPerfil();
+						ep.verPerfil(eu);
+						break;
+					case 2:
+						Temas t = new Temas();
+						t.mostrarTemas();
+						break;
+					case 3:
+						Regras r = new Regras();
+						r.mostrarRegras();
+						break;
+					case 4:
+						//COLOCAR CONDIÇÃO PARA SAIR//
+						if (Temas.score > 30) {
+							System.out.print("\n\t Obrigado por jogar. Volte sempre!");
+							/*EXIT*/
+						}else {
+							System.out.println("\n\t Não foi possível sair. Só pode sair se a pontuação for maior que 30!");							
+						}
+						break;
+					default:
+						System.out.println("Opção Inválida!");
+					}
+				} while (opcao != 0);
+			}
 		}
 	}
+	
 }
