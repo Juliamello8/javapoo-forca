@@ -19,14 +19,14 @@ public class SQLDatabaseConnection {
 
         try (Connection connection = DriverManager.getConnection(connectionUrl);
                 Statement statement = connection.createStatement();) {
-    		System.out.print("Conectado!");
-            // Create and execute a SELECT SQL statement.
+
             String selectSql = "select * from Pessoa";
             resultSet = statement.executeQuery(selectSql);
-
-            // Print results from select statement
-            while (resultSet.next()) {
-                System.out.println(resultSet.getString(1) + " " + resultSet.getString(2));
+            if (selectSql != null) {
+            	Login l = new Login();
+            	l.lerLogin();
+            } else {
+            	System.out.println("\n Usuário inexistente!");            	
             }
         }
         catch (SQLException e) {
@@ -40,7 +40,6 @@ public class SQLDatabaseConnection {
         try (Connection connection = DriverManager.getConnection(connectionUrl);
                 Statement statement = connection.createStatement();) {
 
-            // Create and execute a SELECT SQL statement.
             StringBuilder insert = new StringBuilder();
             insert.append("insert into Pessoa (");
             insert.append("nome,");
@@ -68,23 +67,5 @@ public class SQLDatabaseConnection {
             e.printStackTrace();
         } return null;
 	}
-	public static String login(Login usuario){
-		
-       ResultSet resultSet = null;
 
-        try (Connection connection = DriverManager.getConnection(connectionUrl);
-                Statement statement = connection.createStatement();) {
-
-            // Create and execute a SELECT SQL statement.
-            StringBuilder insert = new StringBuilder();
-            insert.append("select ");
-            insert.append(usuario.getLogin());
-            insert.append(" from Usuario");
-            System.out.println(insert.toString());
-            statement.executeUpdate(insert.toString());
-  
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } return null;
-	}
 }

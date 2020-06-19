@@ -12,63 +12,96 @@ public class Registrar extends Programa {
 	private int telefone;
 	private String city;
 	private String estado;
-	private int cartao;
+	private Integer cartao;
 
 	
 	public String getNome() {
 		return nome;
 	}
 	public void setNome(String nome) {
-		this.nome = nome;
+		if(login.length() != 0) {
+			this.nome = nome;			
+		} else {
+			System.out.println ("Campo vazio, favor preencher!");
+		}
 	}
 	
 	public String getLogin() {
 		return login;
 	}
 	public void setLogin(String login) {
-		this.login = login;
+		if(login.length() != 0) {
+			this.login = login;
+		} else {
+			System.out.println ("Campo vazio, favor preencher!");
+		}
 	}
 	
 	public String getSenha() {
 		return senha;
 	}
 	public void setSenha(String senha) {
-		this.senha = senha;
+		if(senha.length() != 0) {
+			this.senha = senha;			
+		} else {
+			System.out.println ("Campo vazio, favor preencher!");
+		}
 	}
 	
 	public int getIdade() {
 		return idade;
 	}
 	public void setIdade(int idade) {
-		this.idade = idade; 
+		if (idade > 1 && idade < 100) {
+			this.idade = idade; 			
+		} else {
+			System.out.println ("Idade inválida ou campo vazio!");
+		}
 	}
 	
 	public int getTelefone() {
 		return telefone;
 	}
 	public void setTelefone(int telefone) {
-		this.telefone = telefone;
+		if(Integer.toString(telefone).length() > 11 && Integer.toString(telefone).length() < 10) {
+			this.telefone = telefone;			
+		} else {
+			System.out.println ("Número inválido ou campo vazio!");
+		}
 	}
 	
 	public String getCity() {
-		return city;
+		return city;			
 	}
 	public void setCity(String city) {
-		this.city = city;
+		if (city != null) {
+			this.city = city;			
+		} else {
+			System.out.println ("Campo vazio, favor preencher!");
+		}
+		
 	}
 	
 	public String getEstado() {
 		return estado;
 	}
 	public void setEstado(String estado) {
-		this.estado = estado;
+		if (estado != null) {
+			this.estado = estado;			
+		} else {
+			System.out.println ("Campo vazio, favor preencher!");
+		}
 	}
 	
-	public int getCartao() {
+	public Integer getCartao() {
 		return cartao;
 	}
-	public void setCartao(int cartao) {
-		this.cartao = cartao;
+	public void setCartao(Integer cartao) {
+		if (Integer.toString(cartao).length() == 16) {
+			this.cartao = cartao;			
+		} else {
+			System.out.println ("Número inválido ou campo vazio!");
+		}
 	}
 	
 	public void lerUsuario() {
@@ -85,7 +118,7 @@ public class Registrar extends Programa {
 			System.out.println ("Idade: ");
 			idade = Integer.parseInt(leitor.nextLine()); ; 
 
-			System.out.println ("Telefone: ");
+			System.out.println ("Telefone (com DDD): ");
 			telefone = Integer.parseInt(leitor.nextLine()); 
 
 			System.out.println ("Cidade: ");

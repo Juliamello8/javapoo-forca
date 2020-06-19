@@ -17,7 +17,7 @@ public class Programa {
 			System.out.println("|   2 - Fazer Login	|");
 			System.out.println("=========================\n");
 		}
-		//COLOCAR CONDIÇÃO PARA VERIFICAR O LOGIN ISSO ENTRA COM DATABASE//
+		
 		
 		public static void menu() {
 			System.out.println("### MENU: ###");
@@ -49,7 +49,8 @@ public class Programa {
 				break;
 			    case 2:
 			    	Login eu2 = new Login();
-					eu2.realizarLogin();
+					eu2.lerLogin();
+					eu2.Logar();
 				break;
 			    default:
 					System.out.println("Opção Inválida!");
@@ -78,8 +79,12 @@ public class Programa {
 						break;
 					case 4:
 						//COLOCAR CONDIÇÃO PARA SAIR//
-						System.out.println(Temas.score);
-						System.out.println("Só pode sair se a pontuação for maior que 30!");
+						if (Temas.score > 30) {
+							System.out.print("\n\t Obrigado por jogar. Volte sempre!");
+							/*EXIT*/
+						}else {
+							System.out.println("\n\t Não foi possível sair. Só pode sair se a pontuação for maior que 30!");							
+						}
 						break;
 					default:
 						System.out.println("Opção Inválida!");
