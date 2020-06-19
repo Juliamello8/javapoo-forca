@@ -19,7 +19,7 @@ public class SQLDatabaseConnection {
 
         try (Connection connection = DriverManager.getConnection(connectionUrl);
                 Statement statement = connection.createStatement();) {
-
+    		System.out.print("Conectado!");
             // Create and execute a SELECT SQL statement.
             String selectSql = "select * from Pessoa";
             resultSet = statement.executeQuery(selectSql);
@@ -31,8 +31,7 @@ public class SQLDatabaseConnection {
         }
         catch (SQLException e) {
             e.printStackTrace();
-            }	
-		 return null;
+        } return null;
 	}
 	public static String registrar(Registrar usuario){
 		
@@ -65,9 +64,27 @@ public class SQLDatabaseConnection {
             System.out.println(insert.toString());
             statement.executeUpdate(insert.toString());
   
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
-            }	
-		 return null;
+        } return null;
+	}
+	public static String login(Login usuario){
+		
+       ResultSet resultSet = null;
+
+        try (Connection connection = DriverManager.getConnection(connectionUrl);
+                Statement statement = connection.createStatement();) {
+
+            // Create and execute a SELECT SQL statement.
+            StringBuilder insert = new StringBuilder();
+            insert.append("select ");
+            insert.append(usuario.getLogin());
+            insert.append(" from Usuario");
+            System.out.println(insert.toString());
+            statement.executeUpdate(insert.toString());
+  
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } return null;
 	}
 }
