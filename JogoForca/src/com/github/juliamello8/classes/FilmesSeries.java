@@ -14,7 +14,6 @@ public class FilmesSeries extends Temas {
 		String [] palavras = {"FRIENDS", "HARRY-POTTER", "PIRATAS-DO-CARIBE", "SENHOR-DOS-ANEIS", "SABRINA", 
 				"STRANGER-THINGS", "LA-CASA-DE-PAPEL", "TITANIC", "GAME-OF-THRONES", "HOW-TO-GET-AWAY-WITH-MURDER"};
 
-		int score = 0;
 		int quantPalavras = palavras.length;
 		int indiceSorteado = random.nextInt(quantPalavras); 
 		String sorteada = palavras[indiceSorteado];

@@ -14,7 +14,6 @@ public void newPartCorp() {
 		String [] palavras = {"BOCA", "ANTEBRAÇO", "OUVIDO", "OSSOS", "POMO-DE-ADAO", "QUIRODACTILO", "BARBA", 
 				"PATELA", "RETINA", "CUTICULA"};
 		
-		int score = 0;
 		int quantPalavras = palavras.length;
 		int indiceSorteado = random.nextInt(quantPalavras); 
 		String sorteada = palavras[indiceSorteado];

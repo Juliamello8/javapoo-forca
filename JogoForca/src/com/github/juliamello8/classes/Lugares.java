@@ -14,7 +14,6 @@ public class Lugares extends Temas {
 		String [] palavras = {"PARIS", "PARANAMA", "TOQUIO", "GRAND-CANION", "CENTRAL-PARK", 
 				"CANADA", "QUEBEC", "CUBA", "ORLANDO"};
 
-		int score = 0;
 		int quantPalavras = palavras.length;
 		int indiceSorteado = random.nextInt(quantPalavras); 
 		String sorteada = palavras[indiceSorteado];

@@ -5,8 +5,11 @@ import java.util.Scanner;
 import com.github.juliamello8.programa.Programa;
 
 public class Temas extends Programa {
+	
+	public static int score = 0;
 
 	public void mostrarTemas() {
+		
 		
 		int optema;
 		
