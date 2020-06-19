@@ -17,6 +17,7 @@ public class Programa {
 			System.out.println("|   2 - Fazer Login	|");
 			System.out.println("=========================\n");
 		}
+		//COLOCAR CONDIÇÃO PARA VERIFICAR O LOGIN ISSO ENTRA COM DATABASE//
 		
 		public static void menu(){
 			System.out.println("### MENU: ###");
@@ -77,6 +78,7 @@ public class Programa {
 				r.mostrarRegras();
 				break;
 			case 4:
+				//COLOCAR CONDIÇÃO PARA SAIR//
 				System.out.println(Temas.score);
 				System.out.println("Só pode sair se a pontuação for maior que 30!");
 				break;
