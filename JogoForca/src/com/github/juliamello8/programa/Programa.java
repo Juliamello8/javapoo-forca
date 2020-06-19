@@ -6,6 +6,7 @@ import com.github.juliamello8.classes.ExibirPerfil;
 import com.github.juliamello8.classes.Login;
 import com.github.juliamello8.classes.Registrar;
 import com.github.juliamello8.classes.Regras;
+import com.github.juliamello8.classes.SQLDatabaseConnection;
 import com.github.juliamello8.classes.Temas;
 
 public class Programa {
@@ -16,6 +17,7 @@ public class Programa {
 			System.out.println("|   2 - Fazer Login	|");
 			System.out.println("=========================\n");
 		}
+		//COLOCAR CONDIÇÃO PARA VERIFICAR O LOGIN ISSO ENTRA COM DATABASE//
 		
 		public static void menu(){
 			System.out.println("### MENU: ###");
@@ -32,15 +34,19 @@ public class Programa {
 		int inicio;
 		int opcao;
 		
+		Registrar eu = new Registrar();
+		
 		Scanner entrada = new Scanner(System.in);
 		
 		telainicial();
 		System.out.println("Opção: ");
         inicio = entrada.nextInt();
+        boolean reg = false;
         switch (inicio) {
         case 1:
-			Registrar eu = new Registrar();
-			eu.regristrarUsuario();
+			eu.lerUsuario();
+			eu.inserirUsuario();
+			reg = true;
 		break;
         case 2:
         	Login eu2 = new Login();
@@ -49,17 +55,19 @@ public class Programa {
         default:
 			System.out.println("Opção Inválida!");
 		}
-		
-        menu();
+		if (reg) {
+			telainicial();
+		} else {
+        
 		do {
-
+			menu();
 			System.out.println("Opção: ");
             opcao = entrada.nextInt();
 		
 			switch (opcao) {
 			case 1:
 				ExibirPerfil ep = new ExibirPerfil();
-				ep.verPerfil();
+				ep.verPerfil(eu);
 				break;
 			case 2:
 				Temas t = new Temas();
@@ -70,13 +78,14 @@ public class Programa {
 				r.mostrarRegras();
 				break;
 			case 4:
+				//COLOCAR CONDIÇÃO PARA SAIR//
+				System.out.println(Temas.score);
 				System.out.println("Só pode sair se a pontuação for maior que 30!");
 				break;
 			default:
 				System.out.println("Opção Inválida!");
 			}
-		} while (opcao != 0);
-				
+		} while (opcao != 0);		
+		}
 	}
-	
 }

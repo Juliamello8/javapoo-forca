@@ -14,7 +14,6 @@ public class Musicas extends Temas {
 		String [] palavras = {"RAJADAO", "VIOLAO", "PABLO-VITAR", "CASSIA-ELLER", "FRED-MERCURY", "CAZUZA", "PARAMORE",
 				"LUDIMILA", "LADYGAGA", "BEYONCE"};
 
-		int score = 0;
 		int quantPalavras = palavras.length;
 		int indiceSorteado = random.nextInt(quantPalavras); 
 		String sorteada = palavras[indiceSorteado];

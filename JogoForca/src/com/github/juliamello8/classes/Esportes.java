@@ -14,7 +14,7 @@ public class Esportes extends Temas {
 	String [] palavras = {"VOLEIBOL", "FUTEBOL", "BASQUETE", "BAISEBOL", "TENIS", "NATACAO", "HOQUEI", "HIPISMO", 
 			"PATINACAO", "ESCALADA"};
 
-	int score = 0; 
+	
 	int quantPalavras = palavras.length;
 	int indiceSorteado = random.nextInt(quantPalavras); 
 	String sorteada = palavras[indiceSorteado];
