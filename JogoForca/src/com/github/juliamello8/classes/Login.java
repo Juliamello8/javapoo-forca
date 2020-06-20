@@ -29,24 +29,17 @@ public class Login extends Registrar {
 		}
 	}
 	
-	public void lerLogin() {
-		try (Scanner leitor = new Scanner(System.in)) {			
+	public void lerLogin(Scanner entrada) {
 			System.out.println ("Login: ");
-			login = leitor.nextLine(); 
+			login = entrada.nextLine(); 
 			
 			System.out.println ("Senha: ");
-			senha = leitor.nextLine(); 
-		} 
+			senha = entrada.nextLine(); 
 	}
-	public void Logar() {
+	public boolean Logar(String login, String senha) {
 		
-		if (SQLDatabaseConnection.login(getLogin(), getSenha()) != null){
-			System.out.println("Login realizado com sucesso!");	
-			
-		} else {
-			System.out.println("Usuário ou senha incorreto(s)!");	
-		}
-		
+		return SQLDatabaseConnection.login(this.login, this.senha);
+
 	}
 	
 	public void verLogin() {

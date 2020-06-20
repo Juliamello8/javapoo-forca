@@ -6,32 +6,41 @@ import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import com.github.juliamello8.programa.Programa;
+
 public class SQLDatabaseConnection {
+	
+	public String conectou;
 	
 	public static String connectionUrl =
 			"jdbc:sqlserver://localhost:1433;"
 	                + "database=db_JogoForca;"
 	                + "integratedSecurity=true;";
 	
-	public static String login(String usuario, String senha){
+	public static boolean login(String usuario, String senha){
+		
 		
         ResultSet resultSet = null;
 
         try (Connection connection = DriverManager.getConnection(connectionUrl);
                 Statement statement = connection.createStatement();) {
 
-            String selectSql = "select * from Pessoa";
-            resultSet = statement.executeQuery(selectSql);
-            if (selectSql != null) {
-            	Login l = new Login();
-            	l.lerLogin();
-            } else {
-            	System.out.println("\n Usuário inexistente!");            	
-            }
-        }
+            	String selectUser = "select * from Pessoa where usuario ='" + usuario +"' and senha = '"+ senha +"'";
+            	resultSet = statement.executeQuery(selectUser);
+            	while (resultSet.next()){
+            		Programa.eu.setNome(resultSet.getString(2));
+            		Programa.eu.setLogin(resultSet.getString(3));
+            		Programa.eu.setIdade(resultSet.getInt(5));
+            		Programa.eu.setCity(resultSet.getString(7));
+            		Programa.eu.setEstado(resultSet.getString(8));
+            		System.out.println ("Login realizado com Sucesso!");
+            		return true;
+            	}
+           } 
         catch (SQLException e) {
             e.printStackTrace();
-        } return null;
+        } System.out.println ("Falha ao realizar Login!");
+        return false;
 	}
 	public static String registrar(Registrar usuario){
 		
@@ -54,13 +63,12 @@ public class SQLDatabaseConnection {
             insert.append("'"+usuario.getNome()+"',");
             insert.append("'"+usuario.getLogin()+"',");
             insert.append("'"+usuario.getSenha()+"',");
-            insert.append("'"+usuario.getIdade()+"',");
+            insert.append(usuario.getIdade()+",");
             insert.append("'"+usuario.getTelefone()+"',");
             insert.append("'"+usuario.getCity()+"',");
             insert.append("'"+usuario.getEstado()+"',");
             insert.append("'"+usuario.getCartao());
             insert.append("')");
-            System.out.println(insert.toString());
             statement.executeUpdate(insert.toString());
   
         } catch (SQLException e) {
