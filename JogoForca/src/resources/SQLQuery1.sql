@@ -6,10 +6,10 @@ CREATE TABLE Pessoa(
 	usuario char(20) NOT NULL,
 	senha char(20) NOT NULL,
 	idade int NULL,
-	telefone int NULL,
+	telefone char(20) NULL,
 	city char(20) NULL,
 	estado char(20) NULL,
-	cartao int NOT NULL,
+	cartao char(16) NOT NULL,
 	)
 
 CREATE TABLE Usuario(
@@ -18,5 +18,6 @@ CREATE TABLE Usuario(
 	senha char(20) NOT NULL,
 )
 
-SELECT * FROM Pessoa
+SELECT * FROM Pessoa 
 SELECT * FROM Usuario
+
